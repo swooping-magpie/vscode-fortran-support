@@ -1,7 +1,12 @@
 program main
- ! execution
+
+  use main
+
+  implicit none
   
-  call say_hello()
+  integer :: x, y
+
+  call say_hello(x, y)
 
 contains
 
@@ -10,6 +15,5 @@ contains
 
     print *, "Hello, World!"
   end subroutine say_hello
-  
   
 end program main
