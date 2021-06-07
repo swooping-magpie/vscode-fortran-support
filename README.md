@@ -6,8 +6,7 @@
 [![Installs](https://vsmarketplacebadge.apphb.com/installs/krvajalm.linter-gfortran.svg)](https://marketplace.visualstudio.com/items?itemName=krvajalm.linter-gfortran)
 [![GitHub release](https://img.shields.io/github/release/krvajal/vscode-fortran-support.svg)](https://GitHub.com/krvajal/vscode-fortran-support/releases/)
 
-> This extension provides support for the Fortran programming language. It includes syntax highlighting, debugging, code snippets and a linting based on `gfortran`. You can download the Visual Studio Code editor from [here](https://code.visualstudio.com/download).
-
+> This extension provides support for the Fortran programming language. It includes syntax highlighting, debugging, code snippets and a linting based on `gfortran`.
 ## Features
 
 - Syntax highlighting
@@ -37,17 +36,20 @@ By default the `gfortran` executable is assumed to be found in the path. In orde
 
 ``` jsonc
 {
-    "fortran.gfortranExecutable": "/usr/local/bin/gfortran-4.7",
+    "fortran.gfortranExecutable": "/usr/local/bin/gfortran-10",
 }
 ```
 
-If you want to pass extra options to the `gfortran` executable or override the default one, you can use the setting `fortran.linterExtraArgs`. By default `-Wall` is the only option.
+If you want to pass extra options to `gfortran` or override the default ones, you can use the setting `fortran.linterExtraArgs`. By default it is set to `-Wall`.
 
 ``` jsonc
 {
-    "fortran.linterExtraArgs": ["-Wall"],
+    "fortran.linterExtraArgs": ["-Wunused-variable", "-Wunused-dummy-argument"],
 }
 ```
+
+> NOTE: all files are parsed with `-cpp` as for handling preprocessor macros.
+> This option cannot be turned off.
 
 You can configure what kind of symbols will appear in the symbol list by using
 
